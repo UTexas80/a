@@ -8,7 +8,10 @@ add.config(
   currentAY = as.numeric(paste(as.numeric(format(Sys.Date(), format="%y")) - 1, as.numeric(format(Sys.Date(), format="%y")), sep = "")),
   header = "Project Template" # header in reports
 )
-
+# ------------------------------------------------------------------------------keyring
+plotly_api <- keyring::key_get("plot.ly", "UTexas80")
+Sys.setenv("plotly_username"="UTexas80")
+Sys.setenv("plotly_api_key"=plotly_api)
 ################################################################################
 ## Repo Package: data management to build centralized metadata repository       ### https://github.com/franapoli/repo
 ## Check existence of directory and create if doesn't exist                     ### https://tinyurl.com/y3adrqwa

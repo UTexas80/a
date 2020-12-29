@@ -1,0 +1,67 @@
+\newpage
+# 02. Profits {#intro}
+
+```{r 2.0.1-global, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+library(data.table)
+library(dplyr)
+library(flextable)
+library(formattable)
+library(glue)
+library(gt)
+library(here)
+library(officer)
+library(kableExtra)
+library(knitr)
+library(pander)
+library(plotly)
+library
+```
+
+```{r 2.0.2-setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r 2.0.3-tinytex, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
+```{r 2.0.4-rdsInput, echo=FALSE}
+# -----------------------------------------------------------------------------
+dt_abc_profit         <- setDT(readRDS(here::here("rds", "dt_abc_profit.rds")))
+```
+
+```{r 2.0.5-duke-logo, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('images/duke.png'))
+```
+
+```{r 2.1.1-coa-flextable, echo=FALSE, fig.cap='flextable', message = FALSE}
+ft_coa <- flextable(dt02_coa) %>%
+  colformat_num(
+    j                  = 2:length(dt02_coa),
+    big.mark           = ",",
+    digits             = 0,
+    na_str             = "",
+    prefix             = "$"
+  )  
+ft_coa <- border(ft_coa, i=7, border.top = fp_border(color = "black")) %>%
+# ft <- autofit(ft)
+# fit_to_width(max_width = 8.50)  
+fit_to_width(max_width = 8.50) %>%
+set_caption("")
+ft_coa
+```
+
+## 02 Grad COA Percentage of Total Cost
+```{r 2.2.0-viz-pie, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('png/p02a1_pie.png'))
+```
+
+## 02 Grad Resident COA
+```{r 2.2.0-viz-bar, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('png/p02a1_bar.png'))
+```
+
+## 02 Grad Non-Resident COA
+```{r 2.2.1-viz-bar, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('png/p02b1_bar.png'))
+```

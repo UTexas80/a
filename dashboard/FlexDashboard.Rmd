@@ -1,5 +1,5 @@
 ---
-title: "SPL Dashboard"
+title: "ABC Dashboard"
 output:
   flexdashboard::flex_dashboard:
     orientation: row
@@ -7,30 +7,7 @@ output:
     vertical_layout: fill
 date: "`r params$reportdate`"
 resource_files:
-- rds/calendarDays.rds
-- rds/dt_trade_stats.rds
-- rds/dtEMA.rds
-- rds/dXema.rds
-- rds/dXema_trade_stats.rds
-- rds/dXsma.rds
-- rds/dXsma_trade_stats.rds
-- rds/golden.rds
-- rds/goldenX_EMA_strategy.RData
-- rds/goldenX_EMA.RData
-- rds/gXema_trade_stats.rds
-- rds/gXema.rds
-- rds/gXsma.rds
-- rds/nXema.rds
-- rds/nXsma.rds
-- rds/SPL.AX.rds
-- rds/tradeDays.rds
-- rds/trend.rds
-- rds/trend.rds
-- rds/trendReturns.rds
-- rds/trendReturnsAnnualized.rds
-- rds/trendReturnsSMA.rds
-- rds/trendSummaryGroup.rds
-- SPL.AX/SPL.AX.rda
+- rds/dt_abc_profit.rds
 runtime: shiny
 theme: spacelab
 params:
@@ -134,7 +111,7 @@ xprices <- function() {
 ```
 
 ```{r rdsInput}
-# buyHold_results         <- readRDS(here::here("rds", "buyHold_results.rds"))
+dt_abc_profit             <- readRDS(here::here("rds", "dt_abc_profit.rds"))
 calendarDays              <- readRDS(here::here("rds", "calendarDays.rds"))
 dtEMA                     <- readRDS(here::here("rds", "dtEMA.rds"))
 golden                    <- readRDS(here::here("rds", "golden.rds"))

@@ -12,7 +12,7 @@ lsObj<-list(dtObj[Type == 'data.table' & Length_Rows == 0][,1])
 ################################################################################
 ## Step 99.01 access hidden attribute in R data frame  https://is.gd/zenrph ###
 ################################################################################
-df  <-  ls()[sapply(ls(), function(x) is.data.frame(get(x)) | is.xts(get(x)))]
+df  <-  ls()[sapply(ls(), function(x) is.data.frame(get(x)) | xts::is.xts(get(x)))]
 l   <-  ls()[sapply(ls(), function(x) is.data.frame(get(x)))]
 sapply(l, function(x) names(l))
 ################################################################################
@@ -23,7 +23,7 @@ rm(list = ls()[grepl("(SQL|X2016Tuition)", ls())])
 ## Step 99.03: Processing                                                    ###
 ################################################################################
 # rmarkdown::run("./dashboard/Flexdashboard.Rmd")
-# bookdown::render_book("01-intro.Rmd", output_format = "bookdown::word_document2")
+bookdown::render_book("01-intro.Rmd", output_format = "bookdown::pdf_document2")
 ################################################################################
 ## Step 99.98: PROCESSING TIME                                               ###
 ################################################################################

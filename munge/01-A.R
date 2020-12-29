@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# 01. abc Project Name                                                           ---
+# 01. abc items: What percentage of items sold were pencils? Binders?        ---
 # ------------------------------------------------------------------------------
 ################################################################################
 ## Step 01.01 clean the tables                                               ###
@@ -13,6 +13,32 @@ lapply(x01, function(nm) {
   setorder(df, item)
   }
 )
+################################################################################
+## Step 01.02 - set the tables                                               ###
+################################################################################
+dt01_items_sold <-  data.table::cube(abc.data, j=sum(units), by="item")[-.N]
+dt01_items_sold =   data.table(
+                    mutate(dt01_items_sold,
+                    pct_item      = (V1 / sum(V1)) * 100) %>%
+                  adorn_totals("row")                              # grand total
+                )
+names(dt01_items_sold)[2] <- "count"
+################################################################################
+## Step 01.03 viz the tables                                                 ###
+################################################################################
+p01a1_bar <-  plot_ly(dt01_items_sold[-.N],
+                x         = ~item,
+                y         = ~pct_item,
+                marker    = list(color = '#012169'),
+                name      = 'Item Count',
+                type      = 'bar') %>%
+        layout( title     = "ABC Company - Percentage of Items Sold",
+                xaxis     = list(
+                  title   = "Item",
+                tickangle = -45),
+                yaxis     = list(
+                  title   = "Max Award Amount",
+                  tickformat = "%"))
 ################################################################################
 ## Step 00.99: VERSION HISTORY                                               ###
 ################################################################################
