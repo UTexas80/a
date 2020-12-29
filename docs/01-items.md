@@ -13,7 +13,7 @@
 \includegraphics[width=1\linewidth]{/Users/falkfamily/Documents/GitHub/abc/images/duke} 
 
 \blandscape
-## Percentage of Items Sold
+## Percentage of Items Sold Chart
 
 
 \includegraphics[width=1\linewidth]{/Users/falkfamily/Documents/GitHub/abc/png/p01a1_bar} 

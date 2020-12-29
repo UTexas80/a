@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# 01. abc items: What percentage of items sold were pencils? Binders?        ---
+# 01. ABC items: What percentage of items sold were pencils? Binders?        ---
 # ------------------------------------------------------------------------------
 ################################################################################
 ## Step 01.01 clean the tables                                               ###
@@ -20,7 +20,7 @@ dt01_items_sold <-  data.table::cube(abc.data, j=sum(units), by="item")[-.N]
 dt01_items_sold =   data.table(
                     mutate(dt01_items_sold,
                     pct_item      = (V1 / sum(V1)) * 100) %>%
-                  adorn_totals("row")                              # grand total
+                    adorn_totals("row")                              # grand total
                 )
 names(dt01_items_sold)[2] <- "count"
 ################################################################################
@@ -40,7 +40,7 @@ p01a1_bar <-  plot_ly(dt01_items_sold[-.N],
                   title   = "Max Award Amount",
                   tickformat = "%"))
 ################################################################################
-## Step 00.99: VERSION HISTORY                                               ###
+## Step 01.99: VERSION HISTORY                                               ###
 ################################################################################
 a00.version = "1.0.0"
 a00.ModDate = as.Date("2020-12-28")

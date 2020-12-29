@@ -1,0 +1,63 @@
+\newpage
+# 03. orders {#intro}  
+
+```{r 3.0.1-global, echo=FALSE, include=FALSE, message = FALSE, warning=FALSE}
+library(data.table)
+library(dplyr)
+library(flextable)
+library(kableExtra)
+library(officer)
+library(treemap)
+```
+
+```{r 3.0.2-setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r 3.0.3-tinytex, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
+```{r 3.0.4-rdsInput, echo=FALSE}
+dt03_orders_top10 <- setorder(setDT(readRDS(here::here("/rds", "dt03_orders_top10.rds"))), amount)
+```
+
+```{r 3.0.5-duke-logo, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('images/duke.png'))
+```
+
+\newpage
+## Top 10 Order Amount Table
+```{r 3.1.1-tbl-orders}
+
+ft_orders_top10 <- flextable(dt03_orders_top10
+  ) %>%
+  colformat_num(
+    j                  = c(4),
+    big.mark           = ",",
+    digits             = 2,
+    na_str             = "",
+    prefix             = "$"
+  ) %>%
+  fit_to_width(max_width = 8.50) %>%
+set_caption("")
+ft_orders_top10 
+```
+
+\newpage
+\blandscape
+## Top 10 Orders by Person Chart
+```{r 3.1.2-viz-bar, out.width = '70%'}
+knitr::include_graphics(here::here('png/p03a1_hbar.png'))
+```
+\elandscape
+
+## Top 10 Orders by Person Treemap
+```{r 3.1.3-viz-tree, out.width = '100%'}
+
+treemap(dt03_orders_top10,
+        index="Name",
+        vSize="amount",
+        type="index"
+)
+```

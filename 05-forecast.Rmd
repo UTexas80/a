@@ -1,0 +1,44 @@
+\newpage
+# 05. Trend {#intro}
+
+```{r 5.0.1-global, echo=FALSE, include=FALSE, message = FALSE, warning=FALSE}
+library(data.table)
+library(dplyr)
+library(flextable)
+library(forecast)
+library(kableExtra)
+library(officer)
+library(xts)
+```
+
+```{r 5.0.2-setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r 5.0.3-tinytex, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
+```{r 5.0.4-rdsInput, echo=FALSE}
+dt02_items_profit   <- setDT(data.table(readRDS(here::here("/rds", "dt02_items_profit"))))
+```
+
+```{r 5.0.5-duke-logo, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('images/duke.png'))
+```
+
+<!-- ## For Academic Years 2018-19 and 2019-20 -->
+
+## Project Sales Revenue Forcast for the next 3 months
+```{r _5.1.1, echo=FALSE, fig.cap='Sales Revenue Forecast', message=FALSE, warning=FALSE}
+
+xts05_forecast <- xts(x = dt02_items_profit$profit, order.by = dt02_items_profit$date)
+train <- xts05_forecast[index(xts05_forecast) <= "2020-10-31"]
+validation <- xts05_forecast[index(xts05_forecast) > "2020-10-31"]
+model <- auto.arima(train)
+forecast <- forecast(model, h = 121)
+forecast_dates <- seq(as.Date("2020-12-31"), length = 121, by = "day")
+forecast_xts <- xts(forecast$mean, order.by = forecast_dates)
+plot(validation, main = 'ABC Company Profit Forecast')
+lines(forecast_xts, col = "blue")
+```

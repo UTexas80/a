@@ -1,0 +1,48 @@
+\newpage
+# 04. Recommendations {#intro}
+
+```{r 4.0.1-global, echo=FALSE, include=FALSE, message = FALSE, warning=FALSE}
+library(data.table)
+library(dplyr)
+library(flextable)
+library(kableExtra)
+library(officer)
+```
+
+```{r 4.0.2-setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r 4.0.3-tinytex, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
+```{r 4.0.4-rdsInput, echo=FALSE}
+# ------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------
+```
+
+```{r 4.0.5-duke-logo, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('images/duke.png'))
+```
+
+## 04. Financial Aid Awarded: Sources of Financial Aid Table
+```{r 4.1.0-tbl-aid-source, echo=FALSE, fig.cap='Sources of Financial Aid', message=FALSE, warning=FALSE}
+
+```
+
+## 04. Financial Aid Awarded: Sources of Financial Aid Chart
+```{r 4.1.1-viz-pie, echo=FALSE, out.width = '100%'}
+
+```
+
+## 04. Financial Aid Awarded: Types of Financial Aid Table
+```{r 4.2.0-tbl-aid-type, echo=FALSE, fig.cap='Types of Financial Aid', message=FALSE, warning=FALSE}
+
+```
+
+## 04. Financial Aid Awarded: Types of Financial Aid Chart
+```{r 4.2.1-viz-pie, echo=FALSE, out.width = '100%'}
+
+```

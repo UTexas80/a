@@ -1,0 +1,52 @@
+\newpage
+# 02. Profits {#intro}
+
+```{r 2.0.1-global, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+library(data.table)
+library(dplyr)
+library(flextable)
+library(kableExtra)
+library(officer)
+```
+
+```{r 2.0.2-setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r 2.0.3-tinytex, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
+```{r 2.0.4-rdsInput, echo=FALSE}
+dt02_items_profit   <- setDT(data.table(readRDS(here::here("/rds", "dt02_items_profit"))))
+dt02_central_profit <- setDT(data.table(readRDS(here::here("/rds", "dt02_central_profit"))))
+```
+
+```{r 2.0.5-duke-logo, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('images/duke.png'))
+```
+
+## Central Region Profitabiity Table
+```{r 2.1.1-tbl-profit, echo=FALSE, fig.cap='flextable', message = FALSE}
+ft_central_profit <- flextable(dt02_central_profit ) %>%
+  colformat_num(
+    j                  = c(2,4),
+    big.mark           = ",",
+    digits             = 2,
+    na_str             = "",
+    prefix             = "$"
+  )  %>%
+fit_to_width(max_width = 8.50) %>%
+set_caption("")
+ft_central_profit
+```
+
+## Central Region Profit Amount Chart
+```{r 2.2.0-viz-pie, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('png/p02a1_bar.png'))
+```
+
+## Central Region Profit Per Unit Chart
+```{r 2.2.0-viz-bar, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('png/p02b1_bar.png'))
+```

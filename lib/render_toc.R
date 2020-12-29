@@ -72,5 +72,5 @@ render_toc <- function(
     paste0(strrep(" ", level * 4), "- [", header_text, "](#", header_slug, ")")
   })
   x <- x[x != ""]
-  knitr::asis_output(paste(x, collapse = "\n"))
+  # knitr::asis_output(paste(x, collapse = "\n"))
 }

@@ -28,7 +28,7 @@ knitr::include_graphics(here::here('images/duke.png'))
 ```
 
 \blandscape
-## Percentage of Items Sold
+## Percentage of Items Sold Chart
 
 ```{r 1.1.1-viz-bar, out.width = '100%'}
 knitr::include_graphics(here::here('png/p01a1_bar.png'))
