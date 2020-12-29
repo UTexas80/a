@@ -1,0 +1,12 @@
+name: SPL-Dashboard
+title: SPL-Dashboard
+username:
+account: utexas80
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1460391
+bundleId: 4035561
+url: https://utexas80.shinyapps.io/SPL-Dashboard/
+when: 1609167624.50543
+asMultiple: FALSE
+asStatic: FALSE

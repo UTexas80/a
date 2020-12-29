@@ -1,0 +1,12 @@
+name: FlexDashboard
+title: FlexDashboard
+username:
+account: utexas80
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2485642
+bundleId: 3908760
+url: https://utexas80.shinyapps.io/FlexDashboard/
+when: 1606390951.83929
+asMultiple: FALSE
+asStatic: FALSE

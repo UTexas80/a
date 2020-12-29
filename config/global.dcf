@@ -1,0 +1,22 @@
+as_factors: FALSE
+attach_internal_libraries: FALSE
+cache_loading: FALSE
+cache_loaded_data: FALSE
+data_loading: TRUE
+data_loading_header: TRUE
+data_ignore:
+load_libraries: TRUE
+libraries:  bookdown, checkpoint, data.table, data.table, dataMeta, datamodelr, devtools, DBI, DiagrammeR, dplyr, DT, flexdashboard,
+            flextable, formatR, formattable, futile.logger, ggplot2, glue, grid, gridExtra, gt, hrbrthemes, htmltools, janitor,
+            keyring, knitr, lubridate, openxlsx, orca, plotly, plyr, png, prettydoc, ProjectTemplate, qdap, readxl, reactable,
+            reprex, reshape2, rex, RMariaDB, rmarkdown, rmdformats, rmiscutils, RMySQL, RODBC, rscorecard, scales, slider, stargazer,
+            stringr, tabulizer, tabulizerjars, tidyverse, tint, tinytex, tor, treemap, tryCatchLog, tufte, webshot, xlsx, xtable, 
+            zipcodeR, zoo
+logging: TRUE
+logging_level: INFO
+munging: TRUE
+recursive_loading: TRUE
+sticky_variables: NONE
+version: 0.9.2
+tables_type: data_table
+underscore_variables: TRUE
