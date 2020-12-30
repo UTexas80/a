@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.12.29)  29 DEC 2020 17:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.12.29)  30 DEC 2020 07:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -474,9 +474,6 @@ LaTeX Warning: Label `intro' multiply defined.
 
 LaTeX Warning: Label `intro' multiply defined.
 
-
-LaTeX Warning: Label `intro' multiply defined.
-
 )
 \openout1 = `ABC_Company_Report.aux'.
 
@@ -572,204 +569,195 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ] (./ABC_Company_Report.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 2.
+(Font)              <10> on input line 1.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 2.
+(Font)              <7> on input line 1.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 2.
+(Font)              <5> on input line 1.
 )
 \tf@toc=\write4
 \openout4 = `ABC_Company_Report.toc'.
 
-[3] [4
-
-]
-Chapter 1.
-</Users/falkfamily/Documents/GitHub/abc/images/duke.png, id=119, 42.91031pt x 4
+[3]
+</Users/falkfamily/Documents/GitHub/abc/images/duke.png, id=103, 42.91031pt x 4
 8.93282pt>
 File: /Users/falkfamily/Documents/GitHub/abc/images/duke.png Graphic file (type
  png)
 <use /Users/falkfamily/Documents/GitHub/abc/images/duke.png>
 Package pdftex.def Info: /Users/falkfamily/Documents/GitHub/abc/images/duke.png
-  used on input line 115.
+  used on input line 112.
 (pdftex.def)             Requested size: 42.9128pt x 48.93565pt.
-[5 </Users/falkfamily/Documents/GitHub/abc/images/duke.png>]
-</Users/falkfamily/Documents/GitHub/abc/png/p01a1_bar.png, id=126, 1003.75pt x 
+[4 </Users/falkfamily/Documents/GitHub/abc/images/duke.png>]
+</Users/falkfamily/Documents/GitHub/abc/png/p01a1_bar.png, id=111, 1003.75pt x 
 501.875pt>
 File: /Users/falkfamily/Documents/GitHub/abc/png/p01a1_bar.png Graphic file (ty
 pe png)
 <use /Users/falkfamily/Documents/GitHub/abc/png/p01a1_bar.png>
 Package pdftex.def Info: /Users/falkfamily/Documents/GitHub/abc/png/p01a1_bar.p
-ng  used on input line 122.
+ng  used on input line 119.
 (pdftex.def)             Requested size: 550.02719pt x 275.01358pt.
-[6
+[5
 
  </Users/falkfamily/Documents/GitHub/abc/png/p01a1_bar.png>]
-<01-items_files/figure-latex/1.2.1-tbl-items-sold-1.png, id=133, 885.3075pt x 3
+<01-items_files/figure-latex/1.2.1-tbl-items-sold-1.png, id=118, 885.3075pt x 3
 13.17pt>
 File: 01-items_files/figure-latex/1.2.1-tbl-items-sold-1.png Graphic file (type
  png)
 <use 01-items_files/figure-latex/1.2.1-tbl-items-sold-1.png>
 Package pdftex.def Info: 01-items_files/figure-latex/1.2.1-tbl-items-sold-1.png
-  used on input line 128.
+  used on input line 122.
 (pdftex.def)             Requested size: 289.0859pt x 102.26167pt.
-[7
+[6
 
- <./01-items_files/figure-latex/1.2.1-tbl-items-sold-1.png>]pdfTeX warning (ext
-4): destination with the same identifier (name{intro}) has been already used, d
-uplicate ignored
-<to be read again> 
-                   \relax 
-l.133 \chapter{02. Profits}\label{intro}}
-                                          [8
-
-]
-Chapter 2.
+ <./01-items_files/figure-latex/1.2.1-tbl-items-sold-1.png>]
+Chapter 1.
 File: /Users/falkfamily/Documents/GitHub/abc/images/duke.png Graphic file (type
  png)
 <use /Users/falkfamily/Documents/GitHub/abc/images/duke.png>
 Package pdftex.def Info: /Users/falkfamily/Documents/GitHub/abc/images/duke.png
-  used on input line 135.
+  used on input line 129.
 (pdftex.def)             Requested size: 42.9128pt x 48.93565pt.
-<02-profit_files/figure-latex/2.1.1-tbl-profit-1.png, id=145, 768.8725pt x 325.
-215pt>
+<02-profit_files/figure-latex/2.1.1-tbl-profit-1.png, id=124, 689.57625pt x 358
+.33875pt>
 File: 02-profit_files/figure-latex/2.1.1-tbl-profit-1.png Graphic file (type pn
 g)
 <use 02-profit_files/figure-latex/2.1.1-tbl-profit-1.png>
 Package pdftex.def Info: 02-profit_files/figure-latex/2.1.1-tbl-profit-1.png  u
-sed on input line 140.
-(pdftex.def)             Requested size: 216.808pt x 91.70468pt.
-</Users/falkfamily/Documents/GitHub/abc/png/p02a1_bar.png, id=146, 1003.75pt x 
+sed on input line 134.
+(pdftex.def)             Requested size: 208.61061pt x 108.40463pt.
+</Users/falkfamily/Documents/GitHub/abc/png/p02a1_bar.png, id=125, 1003.75pt x 
 501.875pt>
 File: /Users/falkfamily/Documents/GitHub/abc/png/p02a1_bar.png Graphic file (ty
 pe png)
 <use /Users/falkfamily/Documents/GitHub/abc/png/p02a1_bar.png>
 Package pdftex.def Info: /Users/falkfamily/Documents/GitHub/abc/png/p02a1_bar.p
-ng  used on input line 145.
+ng  used on input line 139.
 (pdftex.def)             Requested size: 345.00758pt x 172.50378pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[9 <./02-profit_files/figure-latex/2.1.1-tbl-profit-1.png>]
-</Users/falkfamily/Documents/GitHub/abc/png/p02b1_bar.png, id=154, 1003.75pt x 
+[7
+
+ <./02-profit_files/figure-latex/2.1.1-tbl-profit-1.png>]
+</Users/falkfamily/Documents/GitHub/abc/png/p02b1_bar.png, id=135, 1003.75pt x 
 501.875pt>
 File: /Users/falkfamily/Documents/GitHub/abc/png/p02b1_bar.png Graphic file (ty
 pe png)
 <use /Users/falkfamily/Documents/GitHub/abc/png/p02b1_bar.png>
 Package pdftex.def Info: /Users/falkfamily/Documents/GitHub/abc/png/p02b1_bar.p
-ng  used on input line 150.
+ng  used on input line 144.
 (pdftex.def)             Requested size: 345.00758pt x 172.50378pt.
-[10 </Users/falkfamily/Documents/GitHub/abc/png/p02a1_bar.png> </Users/falkfami
-ly/Documents/GitHub/abc/png/p02b1_bar.png>]pdfTeX warning (ext4): destination w
-ith the same identifier (name{intro}) has been already used, duplicate ignored
+[8 </Users/falkfamily/Documents/GitHub/abc/png/p02a1_bar.png> </Users/falkfamil
+y/Documents/GitHub/abc/png/p02b1_bar.png>]pdfTeX warning (ext4): destination wi
+th the same identifier (name{intro}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.155 \chapter{03. orders}\label{intro}}
+l.149 \chapter{03. orders}\label{intro}}
                                         
-Chapter 3.
+Chapter 2.
 File: /Users/falkfamily/Documents/GitHub/abc/images/duke.png Graphic file (type
  png)
 <use /Users/falkfamily/Documents/GitHub/abc/images/duke.png>
 Package pdftex.def Info: /Users/falkfamily/Documents/GitHub/abc/images/duke.png
-  used on input line 157.
+  used on input line 151.
 (pdftex.def)             Requested size: 42.9128pt x 48.93565pt.
-[11
+[9
 
 ]
-<03-orders_files/figure-latex/3.1.1-tbl-orders-1.png, id=167, 689.57625pt x 529
-.98pt>
+<03-orders_files/figure-latex/3.1.1-tbl-orders-1.png, id=147, 689.57625pt x 563
+.10374pt>
 File: 03-orders_files/figure-latex/3.1.1-tbl-orders-1.png Graphic file (type pn
 g)
 <use 03-orders_files/figure-latex/3.1.1-tbl-orders-1.png>
 Package pdftex.def Info: 03-orders_files/figure-latex/3.1.1-tbl-orders-1.png  u
-sed on input line 164.
-(pdftex.def)             Requested size: 216.8073pt x 166.62918pt.
-[12 <./03-orders_files/figure-latex/3.1.1-tbl-orders-1.png>]
-</Users/falkfamily/Documents/GitHub/abc/png/p03a1_hbar.png, id=174, 1003.75pt x
+sed on input line 158.
+(pdftex.def)             Requested size: 216.8073pt x 177.04352pt.
+[10 <./03-orders_files/figure-latex/3.1.1-tbl-orders-1.png>]
+</Users/falkfamily/Documents/GitHub/abc/png/p03a1_hbar.png, id=154, 1003.75pt x
  501.875pt>
 File: /Users/falkfamily/Documents/GitHub/abc/png/p03a1_hbar.png Graphic file (t
 ype png)
 <use /Users/falkfamily/Documents/GitHub/abc/png/p03a1_hbar.png>
 Package pdftex.def Info: /Users/falkfamily/Documents/GitHub/abc/png/p03a1_hbar.
-png  used on input line 172.
+png  used on input line 166.
 (pdftex.def)             Requested size: 384.99759pt x 192.49878pt.
-[13
+[11
 
  </Users/falkfamily/Documents/GitHub/abc/png/p03a1_hbar.png>]
-<03-orders_files/figure-latex/3.1.3-viz-tree-1.pdf, id=182, 469.755pt x 325.215
+<03-orders_files/figure-latex/3.1.3-viz-tree-1.pdf, id=161, 469.755pt x 325.215
 pt>
 File: 03-orders_files/figure-latex/3.1.3-viz-tree-1.pdf Graphic file (type pdf)
 
 <use 03-orders_files/figure-latex/3.1.3-viz-tree-1.pdf>
 Package pdftex.def Info: 03-orders_files/figure-latex/3.1.3-viz-tree-1.pdf  use
-d on input line 178.
+d on input line 172.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[14
+[12
 
  <./03-orders_files/figure-latex/3.1.3-viz-tree-1.pdf>]pdfTeX warning (ext4): d
 estination with the same identifier (name{intro}) has been already used, duplic
 ate ignored
 <to be read again> 
                    \relax 
-l.183 \chapter{04. Recommendations}\label{intro}}
+l.177 \chapter{04. Recommendations}\label{intro}}
                                                  
-Chapter 4.
+Chapter 3.
 File: /Users/falkfamily/Documents/GitHub/abc/images/duke.png Graphic file (type
  png)
 <use /Users/falkfamily/Documents/GitHub/abc/images/duke.png>
 Package pdftex.def Info: /Users/falkfamily/Documents/GitHub/abc/images/duke.png
-  used on input line 185.
+  used on input line 179.
 (pdftex.def)             Requested size: 42.9128pt x 48.93565pt.
-[15
+[13
 
 ]pdfTeX warning (ext4): destination with the same identifier (name{intro}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.202 \chapter{05. Trend}\label{intro}}
-                                        [16
+l.196 \chapter{05. Trend}\label{intro}}
+                                        [14
 
 ]
-Chapter 5.
+Chapter 4.
 File: /Users/falkfamily/Documents/GitHub/abc/images/duke.png Graphic file (type
  png)
 <use /Users/falkfamily/Documents/GitHub/abc/images/duke.png>
 Package pdftex.def Info: /Users/falkfamily/Documents/GitHub/abc/images/duke.png
-  used on input line 204.
+  used on input line 198.
 (pdftex.def)             Requested size: 42.9128pt x 48.93565pt.
-<05-forecast_files/figure-latex/_5.1.1-1.pdf, id=206, 469.755pt x 325.215pt>
+<05-forecast_files/figure-latex/_5.1.1-1.pdf, id=187, 469.755pt x 325.215pt>
 File: 05-forecast_files/figure-latex/_5.1.1-1.pdf Graphic file (type pdf)
 <use 05-forecast_files/figure-latex/_5.1.1-1.pdf>
 Package pdftex.def Info: 05-forecast_files/figure-latex/_5.1.1-1.pdf  used on i
-nput line 209.
+nput line 203.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-<05-forecast_files/figure-latex/_5.1.1-2.pdf, id=207, 469.755pt x 325.215pt>
+<05-forecast_files/figure-latex/_5.1.1-2.pdf, id=188, 469.755pt x 325.215pt>
 File: 05-forecast_files/figure-latex/_5.1.1-2.pdf Graphic file (type pdf)
 <use 05-forecast_files/figure-latex/_5.1.1-2.pdf>
 Package pdftex.def Info: 05-forecast_files/figure-latex/_5.1.1-2.pdf  used on i
-nput line 209.
+nput line 203.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--210
+Underfull \hbox (badness 10000) in paragraph at lines 203--204
 []
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[17] [18 <./05-forecast_files/figure-latex/_5.1.1-1.pdf> <./05-forecast_files/f
+[15] [16 <./05-forecast_files/figure-latex/_5.1.1-1.pdf> <./05-forecast_files/f
 igure-latex/_5.1.1-2.pdf>] (./ABC_Company_Report.aux)
 Package rerunfilecheck Info: File `ABC_Company_Report.out' has not changed.
-(rerunfilecheck)             Checksum: DE33892B9BC13FA7189848ACA7DC8A35;4096.
+(rerunfilecheck)             Checksum: F082FE19D0845D495B8D6F6D76B17065;3750.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 11984 strings out of 481330
- 174829 string characters out of 5916820
- 462935 words of memory out of 5000000
- 28530 multiletter control sequences out of 15000+600000
+ 11976 strings out of 481330
+ 174709 string characters out of 5916820
+ 461873 words of memory out of 5000000
+ 28527 multiletter control sequences out of 15000+600000
  460874 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  66i,7n,72p,419b,403s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -780,10 +768,10 @@ Users/falkfamily/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></U
 sers/falkfamily/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Us
 ers/falkfamily/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></Use
 rs/falkfamily/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmro10.pfb>
-Output written on ABC_Company_Report.pdf (18 pages, 371993 bytes).
+Output written on ABC_Company_Report.pdf (16 pages, 373419 bytes).
 PDF statistics:
- 266 PDF objects out of 1000 (max. 8388607)
- 215 compressed objects within 3 object streams
- 52 named destinations out of 1000 (max. 500000)
- 200 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 245 PDF objects out of 1000 (max. 8388607)
+ 197 compressed objects within 2 object streams
+ 47 named destinations out of 1000 (max. 500000)
+ 184 words of extra memory for PDF output out of 10000 (max. 10000000)
 

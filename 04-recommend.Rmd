@@ -18,31 +18,46 @@ options(tinytex.verbose = TRUE)
 ```
 
 ```{r 4.0.4-rdsInput, echo=FALSE}
-# ------------------------------------------------------------------------------
-
-# ------------------------------------------------------------------------------
+dt04_profit_total <- setDT(data.table(readRDS(here::here("/rds", "dt04_profit_total.rds"))))
 ```
 
 ```{r 4.0.5-duke-logo, echo=FALSE, out.width = '100%'}
 knitr::include_graphics(here::here('images/duke.png'))
 ```
 
-## 04. Financial Aid Awarded: Sources of Financial Aid Table
-```{r 4.1.0-tbl-aid-source, echo=FALSE, fig.cap='Sources of Financial Aid', message=FALSE, warning=FALSE}
-
+## Central Region Profitabiity Table
+```{r 4.1.1-tbl-profit, echo=FALSE, fig.cap='All Region Profitability', message = FALSE}
+ft_profit_total <- flextable(dt04_profit_total
+  ) %>%
+  set_header_labels(
+    item               = "Item Name",
+    profit             = "Profit",
+    units              = "Count",
+    profit_per_unit    = "Profit Per Unit"
+  ) %>%
+ colformat_num(
+    j                  = c(2,4),
+    big.mark           = ",",
+    digits             = 0,
+    na_str             = "",
+    prefix             = "$"
+  )  %>%
+fit_to_width(max_width = 8.50) %>%
+autofit(
+  )  %>%
+set_caption("")
+flextable::theme_zebra(ft_profit_total)
 ```
 
-## 04. Financial Aid Awarded: Sources of Financial Aid Chart
-```{r 4.1.1-viz-pie, echo=FALSE, out.width = '100%'}
-
-```
-
-## 04. Financial Aid Awarded: Types of Financial Aid Table
-```{r 4.2.0-tbl-aid-type, echo=FALSE, fig.cap='Types of Financial Aid', message=FALSE, warning=FALSE}
-
-```
-
-## 04. Financial Aid Awarded: Types of Financial Aid Chart
+## All Regions Profit Amount Chart
 ```{r 4.2.1-viz-pie, echo=FALSE, out.width = '100%'}
-
+knitr::include_graphics(here::here('png/p04b1_bar.png'))
 ```
+
+## All Region Profit Per Unit Chart
+```{r 4.2.2-viz-bar, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('png/p04b2_bar.png'))
+```
+
+
+#### Recommendation: Based upon the analysis of the above data aggregation, the ABC Company should spend more marketing dollars focusing on binders and pens since each item is one of the most profitable and has the highest profit margins.

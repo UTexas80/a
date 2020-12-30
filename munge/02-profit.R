@@ -27,7 +27,7 @@ p02a1_bar <-  plot_ly(dt02_central_profit,
                 marker    = list(color = '#012169'),
                 name      = 'Item Count',
                 type      = 'bar') %>%
-        layout( title     = "ABC Company - Item Profitability",
+        layout( title     = "ABC Company - Central Region: Item Profitability",
                 xaxis     = list(
                   title   = "Item Name",
                 tickangle = -45),
@@ -41,7 +41,7 @@ p02a2_bar <-  plot_ly(dt02_central_profit,
                       marker    = list(color = '#012169'),
                       name      = 'Item Count',
                       type      = 'bar') %>%
-  layout( title     = "ABC Company - Item Profitability Per Unit",
+  layout( title     = "ABC Company - Central Region: Item Profitability Per Unit",
           xaxis     = list(
             title   = "Item Name",
             tickangle = -45),

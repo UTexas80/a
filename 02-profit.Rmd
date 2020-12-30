@@ -28,8 +28,15 @@ knitr::include_graphics(here::here('images/duke.png'))
 
 ## Central Region Profitabiity Table
 ```{r 2.1.1-tbl-profit, echo=FALSE, fig.cap='flextable', message = FALSE}
-ft_central_profit <- flextable(dt02_central_profit ) %>%
-  colformat_num(
+ft_central_profit <- flextable(dt02_central_profit
+  ) %>%
+  set_header_labels(
+    item               = "Item Name",
+    profit             = "Profit",
+    units              = "Count",
+    profit_per_unit    = "Profit Per Unit"
+  ) %>%
+ colformat_num(
     j                  = c(2,4),
     big.mark           = ",",
     digits             = 2,
@@ -42,11 +49,11 @@ ft_central_profit
 ```
 
 ## Central Region Profit Amount Chart
-```{r 2.2.0-viz-pie, echo=FALSE, out.width = '100%'}
+```{r 2.2.1-viz-pie, echo=FALSE, out.width = '100%'}
 knitr::include_graphics(here::here('png/p02a1_bar.png'))
 ```
 
 ## Central Region Profit Per Unit Chart
-```{r 2.2.0-viz-bar, echo=FALSE, out.width = '100%'}
+```{r 2.2.2-viz-bar, echo=FALSE, out.width = '100%'}
 knitr::include_graphics(here::here('png/p02b1_bar.png'))
 ```

@@ -4,43 +4,98 @@
 # ABC Company would also like you to project sales revenue for the next 3 months.
 # ------------------------------------------------------------------------------
 ################################################################################
-## Step 03.01 clean the tables                                              ###
+## Step 05.01 clean the tables                                              ###
 ################################################################################
+xts05_profit <- xts::as.xts(dt02_items_profit)
+as.Date(index(xts05_profit))
+xts05_profit_monthly <- xts::apply.monthly(xts05_profit[,6],sum)
+xts::tformat(xts05_profit_monthly) <- "%Y-%m"
+# ------------------------------------------------------------------------------
+xts05_ts <- ts(xts05_profit_monthly,start=c(2019,1),frequency=12)
+t<-ts(xts05_profit_monthly)
+# ------------------------------------------------------------------------------
+dt05_profit          <- as.data.table(xts05_profit, keep.rownames = TRUE) # xts to data.table
+dt05_profit_monthly  <- as.data.table(xts05_profit_monthly, keep.rownames = TRUE) # xts to data.table
+dt05_profit_monthly$index<-format(dt05_profit_monthly$index, "%Y-%m")
+# ------------------------------------------------------------------------------
+# fit an ARIMA model of order P, D, Q
+# fit <- arima(xts05_profit_monthly, order=c(p, d, q))
 
+# predictive accuracy
+
+# accuracy(fit)
+
+# predict next 3 observations
+# forecast(fit, 3)
+# plot(forecast(fit, 3))
 ################################################################################
-## Step 03.02 - set the tables                                               ###
+## Step 05.02 - set the tables                                               ###
 ################################################################################
-library(xts)
-xts05_forecast <- xts(x = dt02_items_profit$profit, order.by = dt02_items_profit$date)
-train <- xts05_forecast[index(xts05_forecast) <= "2020-10-31"]
-validation <- sxts05_forecast[index(sxts05_forecast) > "2020-10-31"]
-model <- auto.arima(train)
-forecast <- forecast(model, h = 121)
-forecast_dates <- seq(as.Date("2021-01-01"), length = 121, by = "day")
-forecast_xts <- xts(forecast$mean, order.by = forecast_dates)
-plot(validation, main = 'Forecast Comparison')
-lines(forecast_xts, col = "blue")
+# library(forecast)
+# Output to be created as png file
+# png(file = "TimeSeriesGFG.png")
+
+# Plotting graph without forecasting
+# plot(BJsales, main = "Graph without forecasting",
+# col.main = "darkgreen")
+
+# Saving the file
+# dev.off()
+
+# Output to be created as png file
+# png(file = "TimeSeriesARIMAGFG.png")
+
+# Fitting model using arima model
+# fit <- auto.arima(BJsales)
+
+# Next 10 forecasted values
+# forecastedValues <- forecast(fit, 10)
+
+# Print forecasted values
+# print(forecastedValues)
+
+# plot(forecastedValues, main = "Graph with forecasting",
+# col.main = "darkgreen")
+
+# saving the file
+# dev.off()
 ################################################################################
 ## Step 03.03 viz the tables                                                 ###
-################################################################################
-p03a1_hbar <- plot_ly(dt03_orders_top10,
-               x = ~amount,
-               y = ~Name,
-               type = 'bar',
-               orientation = 'h') %>%
-               layout(title = "ABC Company - Orders",
-               xaxis           = list(
-                 title         = "Amount",
-                 tickangle     = -45,
-                 tickformat    = '$,'),
-               yaxis           = list(
-                 title         = "Name"))
-# ------------------------------------------------------------------------------
-p03a2_tree <- treemap(dt03_orders_top10,
-        index="Name",
-        vSize="amount",
-        type="index"
-)
+################################################################################Sales Trend
+p05a1_line <- 
+  plot_ly(dt05_profit,
+            x            = ~index,     
+            type         = 'scatter', 
+            mode         = 'lines+markers',  
+            yaxis        = 'y2',
+            y            = ~profit, 
+            name         = 'Tier 1',  
+            line         = list(color = '#012169')) %>%
+          layout(
+            title        = "ABC Company - 2 Year Sales Trend",
+            xaxis        = list(
+              title      = "Date",
+              tickangle  = -45),
+            yaxis        = list(
+              title      = "Awd Amt"),
+            barmode      = 'group',
+            tickformat   = "$")
+# ------------------------------------------------------------------------------Monthly Profits
+p05a1_bar <- setorder(dt05_profit_monthly,index) %>%
+  plot_ly(x       = ~index, 
+          y       = ~profit, 
+          marker  = list(color = '#012169'), 
+          name    = 'Graduate', 
+          type    = 'bar') %>%
+    layout(
+      title = "ABC Company - Monthly Profit",
+      xaxis          = list(
+        title        = "Date",
+        tickangle    = -45),
+      yaxis          = list(
+        title        = "Profit"),
+      barmode      = 'group',
+      tickformat   = '$,')
 ################################################################################
 ## Step 03.99: VERSION HISTORY                                               ###
 ################################################################################

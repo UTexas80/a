@@ -2,11 +2,16 @@
 ## Step 99.00 Save .rds files                                                ###
 ################################################################################
 saveRDS(dt01_items_sold,       file = here::here("rds/", "dt01_items_sold.rds"))
-# ------------------------------------------------------------------------------
-saveRDS(dt02_items_profit,      file = here::here("rds/", "dt02_items_profit.rds"))
-saveRDS(dt02_central_profit,    file = here::here("rds/", "dt02_central_profit.rds"))
-# ------------------------------------------------------------------------------
-saveRDS(dt03_orders_top10,      file = here::here("rds/", "dt03_orders_top10.rds"))
+# -----------------------------------------------------------------------------
+saveRDS(dt02_items_profit,     file = here::here("rds/", "dt02_items_profit.rds"))
+saveRDS(dt02_central_profit,   file = here::here("rds/", "dt02_central_profit.rds"))
+# -----------------------------------------------------------------------------
+saveRDS(dt03_orders_top10,     file = here::here("rds/", "dt03_orders_top10.rds"))
+# -----------------------------------------------------------------------------
+saveRDS(dt04_profit_total,     file = here::here("rds/", "dt04_profit_total.rds"))
+# -----------------------------------------------------------------------------
+saveRDS(xts05_profit,          file = here::here("rds/", "xts05_profit.rds"))
+saveRDS(xts05_profit_monthly,  file = here::here("rds/", "xts05_profit_monthly.rds"))
 ################################################################################
 ## Step 00.99: VERSION HISTORY                                               ###
 ################################################################################

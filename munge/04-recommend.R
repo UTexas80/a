@@ -10,37 +10,40 @@
 ################################################################################
 ## Step 024.02 - set the tables                                               ###
 ################################################################################
-dt03_orders_top10 <- setorder(head(data.table::setorder(abc.data, -units)[,-c(1,6)],10), "Name")
-# ------------------------------------------------------------------------------
-dt03_orders_top10_tot_cost <-setorder(dt03_orders_top10[,-3][, sum(total_cost), by = c("Name", "region")],-V1)
-dt03_orders_top10_units    <-setorder(dt03_orders_top10[,-3][, sum(units), by = c("Name", "region")],-V1)
-
-data.table::setkey(dt03_orders_top10_tot_cost, Name, region)
-data.table::setkey(dt03_orders_top10_units, Name, region)
-dt03_orders_top10 <- dt03_orders_top10_tot_cost[dt03_orders_top10_units]
-names(dt03_orders_top10)[3:4] <- c("amount", "units")
-dt03_orders_top10 <- dt03_orders_top10[,c(1:2,4,3)]
+dt04_profit_total <- dt02_items_profit[
+  , 
+  lapply(.SD, sum, na.rm=TRUE), by=item, .SDcols=c("profit", "units") ]
+dt04_profit_total[, profit_per_unit    := profit / units] 
 ################################################################################
 ## Step 04.03 viz the tables                                                 ###
 ################################################################################
-p03a1_hbar <- plot_ly(dt03_orders_top10,
-               x = ~amount,
-               y = ~Name,
-               type = 'bar',
-               orientation = 'h') %>%
-               layout(title = "ABC Company - Orders",
-               xaxis           = list(
-                 title         = "Amount",
-                 tickangle     = -45,
-                 tickformat    = '$,'),
-               yaxis           = list(
-                 title         = "Name"))
+p04b1_bar <-  plot_ly(dt04_profit_total,
+                x         = ~item,
+                y         = ~profit,
+                marker    = list(color = '#012169'),
+                name      = 'Item Count',
+                type      = 'bar') %>%
+        layout( title     = "ABC Company - Item Profitability",
+                xaxis     = list(
+                  title   = "Item Name",
+                tickangle = -45),
+                yaxis     = list(
+                  title   = "Profit Amount",
+                  tickformat = "$,"))
 # ------------------------------------------------------------------------------
-p03a2_tree <- treemap(dt03_orders_top10,
-        index="Name",
-        vSize="amount",
-        type="index"
-)
+p04b2_bar <-  plot_ly(dt04_profit_total,
+                      x         = ~item,
+                      y         = ~profit_per_unit,
+                      marker    = list(color = '#012169'),
+                      name      = 'Item Count',
+                      type      = 'bar') %>%
+  layout( title     = "ABC Company - Item Profitability Per Unit",
+          xaxis     = list(
+            title   = "Item Name",
+            tickangle = -45),
+          yaxis     = list(
+            title   = "Profit Per Unit",
+            tickformat = "$,"))
 ################################################################################
 ## Step 04.99: VERSION HISTORY                                               ###
 ################################################################################

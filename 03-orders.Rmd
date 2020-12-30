@@ -32,6 +32,12 @@ knitr::include_graphics(here::here('images/duke.png'))
 
 ft_orders_top10 <- flextable(dt03_orders_top10
   ) %>%
+  set_header_labels(
+    Name               = "Item Name",
+    region             = "Region",
+    units              = "Count",
+    amount             = "Amount"
+  ) %>%
   colformat_num(
     j                  = c(4),
     big.mark           = ",",

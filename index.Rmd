@@ -2,7 +2,7 @@
 title: "Duke HomeCare and Hospice"
 subtitle: "2019-20 ABC Company"
 author: "Glen C. Falk"
-# date: "`r Sys.Date()`"
+date: "`r Sys.Date()`"
 # site: bookdown::bookdown_site
 header-includes:
 - \usepackage{pdflscape}
@@ -45,4 +45,4 @@ render_toc("02-profit.Rmd")
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
-```
+``

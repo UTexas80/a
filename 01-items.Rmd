@@ -1,5 +1,5 @@
 \newpage
-# 01. Items Sold {#intro}
+# 01. Items {#intro}
 
 ```{r 1.0.1-global, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 library(data.table)
@@ -35,8 +35,6 @@ knitr::include_graphics(here::here('png/p01a1_bar.png'))
 ```
 \elandscape
 
-## Percentage of Items Sold Table
-
 ```{r 1.2.1-tbl-items-sold}
 
 ft_items_sold <- flextable(dt01_items_sold
@@ -47,23 +45,23 @@ ft_items_sold <- flextable(dt01_items_sold
     pct_item            = "% Items Sold"
   ) %>%  colformat_num(
     j                  = 2,
-    big.mark           = ",",  
-    digits             = 0,  
-    na_str             = "",  
+    big.mark           = ",",
+    digits             = 0,
+    na_str             = "",
     prefix             = ""
   ) %>%
   colformat_num(
     j                  = 3,
-    digits             = 2,  
-    na_str             = "",  
+    digits             = 2,
+    na_str             = "",
     suffix             = "%"
-  ) %>%  
+  ) %>%
   width(j = 1,   width = 2.00
   ) %>%
   width(j = 2:3, width = 1.00
   ) %>%
   fontsize(size = 8.25, part = "all"
-  ) %>%  
+  ) %>%
   fit_to_width(max_width = 8.50) %>%
   set_caption("")
 ft_items_sold
