@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "../splGoldenDeathX"
+		},
+		{
+			"path": "../volatility"
 		}
 	],
 	"settings": {}

@@ -8,10 +8,15 @@ add.config(
   currentAY = as.numeric(paste(as.numeric(format(Sys.Date(), format="%y")) - 1, as.numeric(format(Sys.Date(), format="%y")), sep = "")),
   header = "Project Template" # header in reports
 )
+# ------------------------------------------------------------------------------
+# Increasing the speed of {raster} processing with R: Part 1/3               ---
+# https://tinyurl.com/3ze3hzv5                                               ---
+# ------------------------------------------------------------------------------
+rasterOptions(maxmemory = 1e+09)
 # ------------------------------------------------------------------------------keyring
-plotly_api <- keyring::key_get("plot.ly", "UTexas80")
-Sys.setenv("plotly_username"="UTexas80")
-Sys.setenv("plotly_api_key"=plotly_api)
+# plotly_api <- keyring::key_get("plot.ly", "UTexas80")
+# Sys.setenv("plotly_username"="UTexas80")
+# Sys.setenv("plotly_api_key"=plotly_api)
 ################################################################################
 ## Repo Package: data management to build centralized metadata repository       ### https://github.com/franapoli/repo
 ## Check existence of directory and create if doesn't exist                     ### https://tinyurl.com/y3adrqwa
@@ -19,7 +24,13 @@ Sys.setenv("plotly_api_key"=plotly_api)
 mainDir <- (".")
 subDir  <- ("repo")
 rp_path <- file.path(mainDir, subDir)
-
+# ------------------------------------------------------------------------------
+# create global environment to dynamically name data frames
+# https://tinyurl.com/y3adrqwa                                               ###
+# ------------------------------------------------------------------------------
+g                   <- globalenv()           # https://tinyurl.com/r3yrspv   ###
+z                   <- TRUE                  # template switch create dx_blob
+# ------------------------------------------------------------------------------
 # Add project specific configuration that can be overridden from load.project()
 add.config(
   apply.override = TRUE
