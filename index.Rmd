@@ -45,4 +45,4 @@ render_toc("02-profit.Rmd")
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
-``
+```
