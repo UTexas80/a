@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../AnnualReports"
+		},
+		{
+			"path": "../ProjectTemplate"
+		},
+		{
+			"path": "../splGoldenDeathX"
+		},
+		{
+			"path": "../volatility"
+		}
+	],
+	"settings": {}
+}
