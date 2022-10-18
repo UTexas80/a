@@ -19,7 +19,7 @@ libraries:  ARTofR, archivist, arsenal, beepr, blogsnip,blotter, bookdown,
             readxl, reactable, reprex, reshape2, rex, RMariaDB, rmarkdown,
             RVerbalExpressions, scales, slider, stargazer, stringi, stringr,
             tibble, tidytable, tidyquant, tidyverse, timetk, tint, tinytex, tor,
-            treemap, tryCatchLog, tufte, waldo, webshot, xtable, zoo
+            treemap, tryCatchLog, tsbox, TTR, tufte, waldo, webshot, xtable, zoo
 logging: TRUE
 logging_level: INFO
 munging: TRUE
