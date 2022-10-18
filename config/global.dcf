@@ -6,7 +6,7 @@ data_loading: TRUE
 data_loading_header: TRUE
 data_ignore:
 load_libraries: TRUE
-libraries:  ARTofR, archivist, arsenal, beepr, blogsnip,blotter, bookdown,
+libraries:  addinslist, ARTofR, archivist, arsenal, beepr, blogsnip,blotter, bookdown,
             bookdownplus, bracketify, cheatsheet, checkpoint,  daff, data.table,
             dataMeta, datamodelr, datapasta,  DBI, devtools, diffobj, dplyr, DT,
             dygraphs, fable, FinancialInstrument, flexdashboard, flextable, flowr,

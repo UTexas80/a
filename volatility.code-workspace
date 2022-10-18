@@ -1,19 +1,24 @@
 {
 	"folders": [
 		{
+			"name": "volatility",
 			"path": "."
 		},
 		{
+			"name": "AnnualReports",
 			"path": "../AnnualReports"
 		},
 		{
-			"path": "../ProjectTemplate"
-		},
-		{
+			"name": "splGoldenDeathX",
 			"path": "../splGoldenDeathX"
 		},
 		{
-			"path": "../volatility"
+			"name": "s-curve",
+			"path": "../s-curve"
+		},
+		{
+			"name": "ProjectTemplate",
+			"path": "../ProjectTemplate"
 		}
 	],
 	"settings": {}
