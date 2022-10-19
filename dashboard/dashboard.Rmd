@@ -207,9 +207,31 @@ timetk::plot_time_series(dt_msa_5190, index, retail_avg)
 ###
 
 ```{r 0.1.3.2-viz-hist-msa-monmouth, echo = F, out.width = '50%'}
-
 PerformanceAnalytics::chart.Histogram(dx_msa_5190[,'retail_avg',drop = FALSE])
+```
 
+###
+```{r 0.1.3.3-viz-hist-msa-monmouth, echo = F, out.width = '50%'}
+
+
+# draw a histogram
+renderPlot({
+
+  # generate bins based on input$bins from ui.R
+  y <- max(dx_msa_5190[, 3])
+
+  hist(dx_msa_5190[, 3],
+       main = "Monmouth-Ocean MSA",
+       xlab = "retail avg price",
+       ylab = "Count",
+       col = "blue",
+       border = "white",
+       xlim = c(1.5, y),
+       seq(1.5, 5.5, by = 0.10),
+       freq = TRUE
+  )
+
+})
 ```
 
 0.2 Forecast {data-navmenu="0-MSA" data-icon="ion-cash"}
@@ -240,7 +262,7 @@ plot(msa_forecast)
 ###
 
 ```{r 0.2.2.2-tbl-monmouth-sector, echo = F, out.width = '33%'}
-boxplot(ts.msa_5190_mon~cycle(ts.msa_5190_mon, xlab="Date", ylab = "Retail Unleaded Average", main = "Retail Unleaded Average boxplot from 2010-2022"))
+boxplot(ts.msa_5190_mon~cycle(ts.msa_5190_mon), xlab="Month", ylab = "Retail Avg", main = "Monthly Retail Avg boxplot from 2010-2022")
 ```
 
 
