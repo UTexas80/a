@@ -23,22 +23,19 @@ lapply(x01, function(nm) {
 ################################################################################
 ## Step 01.02 merge the tables                                               ###
 ################################################################################
-dt.retail    <- rbind(dt.data, dt.output)
+dt.retail         <- rbind(dt.data, dt.output)
 # ------------------------------------------------------------------------------
-dx_msa_5190  <- xts::as.xts(dt.retail_daily[id_region == '805190',])
-dx_zip_8723  <- xts::as.xts(dt.retail_daily[id_region == '8723',])
-dx_zip_8724  <- xts::as.xts(dt.retail_daily[id_region == '8724',])
+dx_msa_5190       <- data.table::as.xts.data.table(dt.retail_daily[id_region == '805190',])
+dx_zip_8723       <- data.table::as.xts.data.table(dt.retail_daily[id_region == '8723',])
+dx_zip_8724       <- data.table::as.xts.data.table(dt.retail_daily[id_region == '8724',])
+# -----------------------------------------------------------------------------
+dx_ret.cum_5190   <- 1 + (TTR::ROC(dx_msa_5190[,"retail_avg"])) - 1
+dx_ret.cum_8723   <- 1 + (TTR::ROC(dx_zip_8723[,"retail_avg"])) - 1
+dx_ret.cum_8724   <- 1 + (TTR::ROC(dx_zip_8724[,"retail_avg"])) - 1
 # ------------------------------------------------------------------------------
-ret.cum_5190 <- 1 + (TTR::ROC(dx_msa_5190[,"retail_avg"])) - 1
-ret.cum_8723 <- 1 + (TTR::ROC(dx_zip_8723[,"retail_avg"])) - 1
-ret.cum_8724 <- 1 + (TTR::ROC(dx_zip_8724[,"retail_avg"])) - 1
-# ------------------------------------------------------------------------------
-chart.TimeSeries(ret.cum_5190, colorset = "darkblue")
-png("monmouth.png")
-chart.TimeSeries(ret.cum_8723, colorset = "darkblue")
-png("x08723.png")
-chart.TimeSeries(ret.cum_8724, colorset = "darkblue")
-ggsave("x08724.png")
+chart.TimeSeries(dx_ret.cum_5190, colorset = "darkblue")
+chart.TimeSeries(dx_ret.cum_8723, colorset = "darkblue")
+chart.TimeSeries(dx_ret.cum_8724, colorset = "darkblue")
 ################################################################################
 ## Step 00.99: VERSION HISTORY                                               ###
 ################################################################################
