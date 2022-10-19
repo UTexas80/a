@@ -58,6 +58,7 @@ library(ggdark)
 library(ggdist)
 library(ggeasy)
 library(ggforce)
+library(ggfortify)
 library(gghighlight)
 library(ggimage)
 library(ggiraph)
@@ -206,7 +207,9 @@ timetk::plot_time_series(dt_msa_5190, index, retail_avg)
 ###
 
 ```{r 0.1.3.2-viz-hist-msa-monmouth, echo = F, out.width = '50%'}
+
 PerformanceAnalytics::chart.Histogram(dx_msa_5190[,'retail_avg',drop = FALSE])
+
 ```
 
 0.2 Forecast {data-navmenu="0-MSA" data-icon="ion-cash"}
@@ -215,7 +218,7 @@ PerformanceAnalytics::chart.Histogram(dx_msa_5190[,'retail_avg',drop = FALSE])
 Input {.sidebar}
 -------------------------------------
 
-```{r 0.2.0.1-sidebarInput}
+```{r 2.0.0.1-sidebarInput}
 dateRangeInput("dateRange",
   "Historical data",
   start = params$dateStart,
@@ -225,27 +228,31 @@ dateRangeInput("dateRange",
 )
 ```
 
-
 Row {data-height=44%}
 -------------------------------------
 
 ###
+
 ```{r 0.2.2.1-tbl-monmouth-sector, echo = F, out.width = '33%'}
- plot(msa_forecast)
+plot(msa_forecast)
 ```
 
 ###
+
 ```{r 0.2.2.2-tbl-monmouth-sector, echo = F, out.width = '33%'}
-  boxplot(ts.msa_5190_mon~cycle(ts.msa_5190_mon), xlab="Month", ylab="Retail Price Avg.", main="Monthly Retail Price Avg from 2010-2022")
+boxplot(ts.msa_5190_mon~cycle(ts.msa_5190_mon, xlab="Date", ylab = "Retail Unleaded Average", main = "Retail Unleaded Average boxplot from 2010-2022"))
 ```
 
-0.3 Sectors {data-navmenu="0-MSA" data-icon="ion-cash"}
+
+
+0.3 Volatility {data-navmenu="0-MSA" data-icon="ion-cash"}
 =====================================
 
 Row {data-height=44%}
 -------------------------------------
 
 ###
+
 ```{r 0.3.2.1-tbl-monmouth-sector, echo = F, out.width = '33%'}
 
 DT::renderDataTable({
