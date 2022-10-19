@@ -10,7 +10,7 @@ libraries:  addinslist, ARTofR, archivist, arsenal, beepr, blogsnip,blotter, boo
             bookdownplus, bracketify, cheatsheet, checkpoint,  daff, data.table,
             dataMeta, datamodelr, datapasta,  DBI, devtools, diffobj, dplyr, DT,
             dygraphs, fable, FinancialInstrument, flexdashboard, flextable, flowr,
-            formatR,formattable, futile.logger, fuzzyjoin, ggfortify, ggplot2,
+            formatR, formattable, futile.logger, fuzzyjoin, ggfortify, ggplot2,
             ggstatsplot, ggthemr, glue,  googlesheets4, grid, gridExtra, gt, here,
             highcharter, htmlwidgets, hrbrthemes,  htmltools, janitor, keyring,
             knitr, lubridate, maps, modelsummary, Microsoft365R, openxlsx,
