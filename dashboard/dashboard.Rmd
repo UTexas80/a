@@ -116,6 +116,8 @@ dt_msa_5190     <- data.table::as.data.table(readRDS(here::here("dashboard/rds/"
 dt_zip_8723     <- data.table::as.data.table(readRDS(here::here("dashboard/rds/", "dx_zip_8723.rds")))
 dt_zip_8724     <- data.table::as.data.table(readRDS(here::here("dashboard/rds/", "dx_zip_8724.rds")))
 # ------------------------------------------------------------------------------
+dt_bb20_disp    <- data.table::as.data.table(readRDS(here::here("dashboard/rds/", "dt_bb20_disp.rds")))
+# ------------------------------------------------------------------------------
 dx_msa_5190     <- data.table::as.xts.data.table(
   data.table::as.data.table(readRDS(here::here("dashboard/rds/", "dx_msa_5190.rds")))
 )
@@ -147,7 +149,43 @@ ts.msa_5190_mon <- ts(to.monthly(dx_msa_5190$retail_avg), frequency = 12)
 ```
 
 ```{r functions,  global, echo=FALSE, include=FALSE, message = FALSE}
+# * Setup a ggplot cyberpunk theme ----
 
+theme_cyberpunk <- function() {
+  
+  clrs <- colorRampPalette(c("#00ff9f", "#00b8ff", "#001eff", "#bd00ff", "#d600ff"))(7)
+
+  clr_bg   <- "black"
+  clr_bg2  <- "gray10"
+  clr_grid <- "gray30"
+  clr_text <- "#d600ff"
+  
+    theme(
+        # Plot / Panel
+        plot.background = element_rect(fill = clr_bg, colour = clr_bg),
+        # plot.margin = margin(1.5, 2, 1.5, 1.5, "cm"),
+        panel.background = element_rect(fill = clr_bg, color = clr_bg),
+        # Grid
+        panel.grid = element_line(colour = clr_grid, size = 1),
+        panel.grid.major = element_line(colour = clr_grid, size = 1),
+        panel.grid.minor = element_line(colour = clr_grid, size = 1),
+        axis.ticks.x = element_line(colour = clr_grid, size = 1),
+        axis.line.y = element_line(colour = clr_grid, size = 0.5),
+        axis.line.x = element_line(colour = clr_grid, size = 0.5),
+        # Text
+        plot.title = element_text(colour = clr_text),
+        plot.subtitle = element_text(colour = clr_text),
+        axis.text = element_text(colour = clr_text),
+        axis.title = element_text(colour = clr_text),
+        # Legend
+        legend.background = element_blank(),
+        legend.key = element_blank(),
+        legend.title = element_text(colour = clr_text),
+        legend.text = element_text(colour = "gray80", size = 12, face = "bold"),
+        # Strip
+        strip.background = element_rect(fill = clr_bg2, color = clr_bg2)
+    )
+}
 ```
 0.0 MSA {data-navmenu="0-MSA" data-icon="fa-list"}
 =====================================
@@ -205,14 +243,7 @@ timetk::plot_time_series(dt_msa_5190, index, retail_avg)
 
 
 ###
-
-```{r 0.1.3.2-viz-hist-msa-monmouth, echo = F, out.width = '50%'}
-PerformanceAnalytics::chart.Histogram(dx_msa_5190[,'retail_avg',drop = FALSE])
-```
-
-###
 ```{r 0.1.3.3-viz-hist-msa-monmouth, echo = F, out.width = '50%'}
-
 
 # draw a histogram
 renderPlot({
@@ -265,16 +296,13 @@ plot(msa_forecast)
 boxplot(ts.msa_5190_mon~cycle(ts.msa_5190_mon), xlab="Month", ylab = "Retail Avg", main = "Monthly Retail Avg boxplot from 2010-2022")
 ```
 
-
-
 0.3 Volatility {data-navmenu="0-MSA" data-icon="ion-cash"}
 =====================================
 
 Row {data-height=44%}
 -------------------------------------
 
-###
-
+### MSA: Monmouth-Ocean
 ```{r 0.3.2.1-tbl-monmouth-sector, echo = F, out.width = '33%'}
 
 DT::renderDataTable({
@@ -293,11 +321,9 @@ DT::renderDataTable({
     ) %>%
     formatDate("index")
 })
-
 ```
 
-###
-
+### Zip: 08723
 ```{r 0.3.2.2-tbl-zip-8723, echo = F, out.width = '33%'}
 
 DT::renderDataTable({
@@ -316,11 +342,9 @@ DT::renderDataTable({
     ) %>%
     formatDate("index")
 })
-
 ```
 
-###
-
+### Zip: 087234
 ```{r 0.3.2.3-tbl-zip-8724, echo = F, out.width = '33%'}
 
 DT::renderDataTable({
@@ -339,32 +363,231 @@ DT::renderDataTable({
     ) %>%
     formatDate("index")
 })
-
 ```
 
 Row {data-height=44%}
 -------------------------------------
-### Monmouth-Ocean Time-Series
+### Monmouth-Ocean Volatility
 
-```{r 0.3.3.1-viz-ts-monmouth, echo = F, fig.cap = "Monmouth Time-Series", out.width = '22%'}
-  
+```{r 0.3.3.1-viz-ts-monmouth, echo = F, fig.cap = "Monmouth Time-Series", out.width = '34%'}
 PerformanceAnalytics::chart.TimeSeries(dx_ret.cum_5190, colorset = "darkblue")
-
 ```
 
-### Zip 08723 Time-Series
-
-```{r 0.3.3.2-viz-ts-08723, echo = F, fig.cap = "Zip 08723 Time-Series", out.width = '22%'}
-  
+### Zip 08723 Volatility
+```{r 0.3.3.2-viz-ts-08723, echo = F, fig.cap = "Zip 08723 Time-Series", out.width = '33%'}
 PerformanceAnalytics::chart.TimeSeries(dx_ret.cum_8723, colorset = "darkblue")
-
 ```
 
-### Zip 08724 Time-Series
-
-```{r 0.3.3.3-viz-ts-08724, echo = F, fig.cap = "Zip 08724 Time-Series", out.width = '22%'}
-  
+### Zip 08724 Volatility
+```{r 0.3.3.3-viz-ts-08724, echo = F, fig.cap = "Zip 08724 Time-Series", out.width = '33%'}
 PerformanceAnalytics::chart.TimeSeries(dx_ret.cum_8724, colorset = "darkblue")
+```
+
+0.4 Dispersion {data-navmenu="0-MSA" data-icon="ion-cash"}
+=====================================
+
+Input {.sidebar}
+-------------------------------------
+
+```{r 4.0.0.1-sidebarInput}
+dateRangeInput("dateRange3.0",
+  "Dispersion data",
+  start = params$dateStart,
+  end = Sys.Date(),
+  min = params$dateStart,
+  max = Sys.Date()
+)
+```
+
+Column {data-height=17%}
+-------------------------------------
+
+###
+
+```{r 4.1.1.1.a-vbox-disp-last}
+
+flexdashboard::renderValueBox({
+  disp_last <-  percent(
+                  max(
+                    xts::last(
+                      na.omit(
+                        dt_bb20_disp[,6]
+                      )
+                    )
+                  )
+                )
+# ------------------------------------------------------------------------------
+  flexdashboard::valueBox(
+    paste0("Disp: ", as.character(disp_last)),
+    color = ifelse(disp_last > 0, "#BF5700", "red"),
+    icon  = "ion-cash"
+  )
+})
+```
+
+```{r 4.1.1.1.b-vbox-disp-delta}
+
+flexdashboard::renderValueBox({
+  delt_last <-  percent(
+                  max(
+                    xts::last(
+                      na.omit(
+                        dt_bb20_disp[,7]
+                      )
+                    )
+                  )
+                )
+# ------------------------------------------------------------------------------
+  flexdashboard::valueBox(
+    paste0("Delta: ", as.character(delt_last)),
+    color = ifelse(delt_last > 0, "#BF5700", "red"),
+    icon  = "ion-cash"
+  )
+})
 
 ```
 
+###
+
+```{r 4.1.1.2.a-vbox-max-disp}
+
+flexdashboard::renderValueBox({
+  disp_max <- percent(
+                max(
+                  na.omit(
+                    dt_bb20_disp[,6]
+                    )
+                  )
+                )
+# ------------------------------------------------------------------------------
+  flexdashboard::valueBox(
+    paste0("Max Disp: ", as.character(disp_max)),
+    color = ifelse(disp_max > 0, "teal", "red"),
+    icon  = "ion-cash"
+  )
+})
+```
+
+```{r 4.1.1.2.b-vbox-max-delt}
+
+flexdashboard::renderValueBox({
+  delt_max <- percent(
+                max(
+                  na.omit(
+                    dt_bb20_disp[,7]
+                    )
+                  )
+                )
+# ------------------------------------------------------------------------------
+  flexdashboard::valueBox(
+    paste0("Max Delta: ", as.character(delt_max)),
+    color = fcase(
+      delt_max > 0, "teal",  
+      delt_max < 0, "red",  
+      default  = "gray30"),
+    icon  = "ion-cash"
+  )
+})
+```
+
+###
+
+```{r 4.1.1.3.a-vbox-min-disp}
+
+flexdashboard::renderValueBox({
+  disp_min <- percent(
+                min(
+                  na.omit( 
+                    dt_bb20_disp[,6]
+                    )
+                  )
+                )
+# ------------------------------------------------------------------------------
+  flexdashboard::valueBox(
+    paste0("Min Disp: ", as.character(disp_min)),
+    color = ifelse(disp_min > 0, "teal", "red"),
+    icon  = "ion-cash"
+  )
+})
+
+```
+
+```{r 4.1.1.3.b-vbox-min-delt}
+
+flexdashboard::renderValueBox({
+  delt_min <- percent(
+                min(
+                  na.omit(
+                    dt_bb20_disp[,7]
+                    )
+                  )
+                )
+# ------------------------------------------------------------------------------
+  flexdashboard::valueBox(
+    paste0("Min Delta: ", as.character(delt_min)),
+    color = ifelse(delt_min > 0, "teal", "red"),
+    icon  = "ion-cash"
+  )
+})
+
+```
+
+Column {data-height=83%, .tabset .tabset-fade}
+-------------------------------------
+
+### Dispersion Table
+
+```{r 4.1.2.1-table-disp}
+DT::renderDataTable({
+  DT::datatable(  dt_bb20_disp,
+    rownames = FALSE,
+    extensions = c("Scroller"),
+    filter = 'top',
+    options = list(
+      dom = 'ltipr',
+      order = list(list(0, "desc")),
+      pageLength = 10,
+      scrollX = TRUE,
+      scrollY = 280,
+      scroller = TRUE
+    )
+  ) %>%
+    formatDate(c("date")) %>%
+    formatPercentage(c("dn", "mavg", "up", "pctB", "pct", "delta"), 1) %>%
+    formatStyle("delta",
+      color = styleInterval(c(0), c("maroon", "darkgreen"))
+    )  
+})  
+
+```
+
+### MSA: Monmouth-Ocean-20 Day Moving Average Disperson
+```{r 0.4.2.1-viz-monmouth-bb20, echo = F, out.width = '33%'}
+renderPlotly({
+  dt_bb20_disp  %>%
+    plot_time_series(
+      .date_var = date,
+      .value = pct,
+      .smooth = TRUE,
+      .interactive = FALSE
+    ) +
+    theme_cyberpunk() +
+    geom_line(size = 0.5, colour = "#0c4c8a")
+})
+```
+
+
+### MSA: Monmouth-Ocean-20 Day MA Delta Disperson
+```{r 0.4.2.2-viz-monmouth-bb20, echo = F, out.width = '33%'}
+renderPlotly({
+  dt_bb20_disp  %>%
+    plot_time_series(
+      .date_var = date,
+      .value = delta,
+      .smooth = TRUE,
+      .interactive = FALSE
+    ) +
+    theme_cyberpunk() +
+    geom_line(size = 0.5, colour = "#0c4c8a")
+})
+```
