@@ -19,6 +19,9 @@
 		{
 			"name": "ProjectTemplate",
 			"path": "../ProjectTemplate"
+		},
+		{
+			"path": "../eda"
 		}
 	],
 	"settings": {
